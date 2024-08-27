@@ -7,6 +7,14 @@ export const ContextProvider = ({ children }) => {
   const [likedMusic, setLikedMusic] = useState([]);
   const [pinnedMusic, setPinnedMusic] = useState([]);
   const [resultOffset, setResultOffset] = useState(0);
+  const [currentTrack, setCurrentTrack] = useState(null);
+
+  // Function to handle when a track is played
+  const onPlay = (track) => {
+    console.log(track);
+    
+    setCurrentTrack(track);
+  };
 
   return (
     <MusicContext.Provider
@@ -19,6 +27,9 @@ export const ContextProvider = ({ children }) => {
         setResultOffset,
         pinnedMusic,
         setPinnedMusic,
+        currentTrack,
+        setCurrentTrack,
+        onPlay,
       }}
     >
       {children}

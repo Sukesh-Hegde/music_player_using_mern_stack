@@ -6,6 +6,7 @@ function PinnedMusic() {
   const musicContext = useContext(MusicContext);
   const pinnedMusic = musicContext.pinnedMusic;
   const setpinnedMusic = musicContext.setPinnedMusic;
+  const onPlay = musicContext.onPlay;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -30,7 +31,9 @@ function PinnedMusic() {
         ) : (
           <div className="row">
             {pinnedMusic.map((element) => {
-              return <Card key={element.id} element={element} />;
+              return (
+                <Card key={element.id} element={element} onPlay={onPlay} />
+              );
             })}
           </div>
         )}

@@ -6,9 +6,9 @@ const MusicPlayer = ({ currentTrack }) => {
 
   useEffect(() => {
     if (audioRef.current) {
-      audioRef.current.play().catch((error) => {
-        console.error("Error playing audio:", error);
-      });
+      audioRef.current.play() 
+        // console.error("Error playing audio:", error);
+
     }
   }, [currentTrack]);
 

@@ -6,6 +6,7 @@ function LikedMusic() {
   const musicContext = useContext(MusicContext);
   const likedMusic = musicContext.likedMusic;
   const setlikedMusic = musicContext.setLikedMusic;
+  const onPlay = musicContext.onPlay;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -39,7 +40,7 @@ function LikedMusic() {
       <div className="container">
         <div className="row">
           {likedMusic.map((element) => {
-            return <Card key={element.id} element={element} />;
+            return <Card key={element.id} element={element} onPlay={onPlay} />;
           })}
         </div>
       </div>

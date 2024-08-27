@@ -10,13 +10,14 @@ function App() {
   const [keyword, setKeyword] = useState("");
   const [message, setMessage] = useState("");
   const [tracks, setTracks] = useState([]);
-  const [currentTrack, setCurrentTrack] = useState(null); // State to hold the current playing track
 
   const musicContext = useContext(MusicContext);
   const isLoading = musicContext.isLoading;
   const setIsLoading = musicContext.setIsLoading;
   const resultOffset = musicContext.resultOffset;
   const setResultOffset = musicContext.setResultOffset;
+  const currentTrack = musicContext.currentTrack;
+  const onPlay = musicContext.onPlay;
 
   const fetchMusicData = async () => {
     setTracks([]);
@@ -29,7 +30,7 @@ function App() {
       // }&type=track&offset=${resultOffset}`);
 
       if (!response.ok) {
-        throw new Error("Failed to fetch music data");
+        throw new Error("Failed to fetch music data");1
       }
 
       const jsonData = await response.json();
@@ -54,10 +55,7 @@ function App() {
     fetchMusicData();
   }, []);
 
-  // Function to handle when a track is played
-  const onPlay = (track) => {
-    setCurrentTrack(track.preview_url);
-  };
+
 
   return (
     <>
@@ -116,11 +114,11 @@ function App() {
             </button>
           </div>
         </div>
-        <div className="row">
+        {/* <div className="row">
           <div className="col">
             <h4 className="text-center text-danger py-2">{message}</h4>
           </div>
-        </div>
+        </div> */}
         <div className="col width:'100' sticky-music-controls">
           <MusicPlayer currentTrack={currentTrack} />
         </div>

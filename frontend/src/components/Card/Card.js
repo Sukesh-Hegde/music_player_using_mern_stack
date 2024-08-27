@@ -3,12 +3,14 @@ import { MusicContext } from "../../Context";
 
 // import './card.css'
 
-function Card({ element, onPlay }) {
+function Card({ element }) {
   const musicContext = useContext(MusicContext);
   const likedMusic = musicContext.likedMusic;
   const setlikedMusic = musicContext.setLikedMusic;
   const pinnedMusic = musicContext.pinnedMusic;
   const setpinnedMusic = musicContext.setPinnedMusic;
+  const onPlay = musicContext.onPlay;
+
 
   const handlePin = () => {
     let pinnedMusic = JSON.parse(localStorage.getItem("pinnedMusic")) || [];
@@ -49,7 +51,6 @@ function Card({ element, onPlay }) {
     <div
       key={element.id}
       className="col-lg-3 col-md-6 py-2"
-      // style={{ height: "600px" }}
     >
       <div className="card">
         <div className="ratio ratio-1x1 bg-secondary bg-opacity-25">
