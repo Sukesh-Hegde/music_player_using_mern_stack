@@ -1,6 +1,7 @@
 import "./App.css";
 import { useContext, useEffect, useState } from "react";
 import Card from "./components/Card";
+import CreatePlaylist from "./components/CreatePlaylist";
 import { initializePlaylist } from "./initialize";
 import Navbar from "./components/Navbar";
 import { MusicContext } from "./Context";
@@ -25,7 +26,7 @@ function App() {
     setIsLoading(true);
     try {
       const response = await fetch(
-        `https://api.spotify.com/v1/search?q=${keyword}&type=track&offset=${resultOffset}`,
+        `https://api.spotify.com/v1/search?q=${keyword===""?"bollywood":keyword}&type=track&offset=${resultOffset}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -74,6 +75,8 @@ function App() {
 
         const jsonData = await response.json();
         setToken(jsonData.access_token);
+        // Fetch initial music data after token is obtained
+        fetchMusicData();
       } catch (error) {
         setMessage(error.message);
       } finally {
@@ -161,7 +164,15 @@ function App() {
           </div>
         </div>
       </div>
-
+      <div
+        className="modal fade position-absolute"
+        id="exampleModal"
+        tabIndex={-1}
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <CreatePlaylist />
+      </div>
     </>
   );
 }

@@ -86,6 +86,7 @@ function Card({ element }) {
                   <i className="bi bi-heart"></i>
                 </button>
               )}
+               
               
             </div>
           </h5>

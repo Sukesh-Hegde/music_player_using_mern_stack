@@ -24,7 +24,7 @@ const Navbar = ({ keyword, handleKeyPress, setKeyword, fetchMusicData }) => {
               data-bs-target="#exampleModal"
               className="btn btn-secondary btn-sm mx-1"
             >
-              <i className="bi bi-pin-angle-fill"></i> {pinnedMusic.length}
+              <i className="bi ">playlist</i> {pinnedMusic.length}
             </button>
             <button
               type="button"
