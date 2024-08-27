@@ -10,6 +10,12 @@ const Navbar = ({ keyword, handleKeyPress, setKeyword, fetchMusicData }) => {
   const likedMusic = musicContext.likedMusic;
   const pinnedMusic = musicContext.pinnedMusic;
   const setResultOffset = musicContext.setResultOffset;
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    window.location.reload();
+  };
+
   return (
     <>
       <nav className="navbar navbar-dark navbar-expand-lg bg-dark sticky-top">
@@ -54,9 +60,14 @@ const Navbar = ({ keyword, handleKeyPress, setKeyword, fetchMusicData }) => {
                 setResultOffset(0);
                 fetchMusicData();
               }}
-              className="btn btn-outline-success"
+              className="btn btn-outline-success "
+              
             >
               Search
+            </button>
+
+            <button onClick={handleLogout} className="btn btn-outline-warning mx-4">
+              Logout
             </button>
           </div>
         </div>
