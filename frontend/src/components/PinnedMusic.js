@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import Card from "./Card";
+import Card from "./Card/Card";
 import { MusicContext } from "../Context";
 
 function PinnedMusic() {

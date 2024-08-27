@@ -1,0 +1,12 @@
+.music-player {
+  margin: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  width: 100%;
+}
+
+.music-player audio {
+  width: 100%; /* Adjust this as needed */
+}
