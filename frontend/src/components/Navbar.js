@@ -1,15 +1,15 @@
-// import React, { useContext } from "react";
+import React, { useContext } from "react";
 
-// import { Link } from "react-router-dom";
-// import { MusicContext } from "../Context";
-// import PinnedMusic from "./PinnedMusic";
-// import LikedMusic from "./LikedMusic";
+import { Link } from "react-router-dom";
+import { MusicContext } from "../Context";
+import PinnedMusic from "./PinnedMusic";
+import LikedMusic from "./LikedMusic";
 
 const Navbar = ({ keyword, handleKeyPress, setKeyword, fetchMusicData }) => {
-  // const musicContext = useContext(MusicContext);
-  // const likedMusic = musicContext.likedMusic;
-  // const pinnedMusic = musicContext.pinnedMusic;
-  // const setResultOffset = musicContext.setResultOffset;
+  const musicContext = useContext(MusicContext);
+  const likedMusic = musicContext.likedMusic;
+  const pinnedMusic = musicContext.pinnedMusic;
+  const setResultOffset = musicContext.setResultOffset;
   return (
     <>
       <nav className="navbar navbar-dark navbar-expand-lg bg-dark sticky-top">
@@ -109,9 +109,9 @@ const Navbar = ({ keyword, handleKeyPress, setKeyword, fetchMusicData }) => {
                 aria-label="Close"
               />
             </div>
-            {/* <div className="modal-body">
+            <div className="modal-body">
               <LikedMusic />
-            </div> */}
+            </div>
           </div>
         </div>
       </div>

@@ -1,10 +1,9 @@
 import "./App.css";
 import { useContext, useEffect, useState } from "react";
-// import Card from "./components/Card";
-// import CreatePlaylist from "./components/CreatePlaylist";
-// import { initializePlaylist } from "./initialize";
+import Card from "./components/Card";
+import { initializePlaylist } from "./initialize";
 import Navbar from "./components/Navbar";
-// import { MusicContext } from "./Context";
+import { MusicContext } from "./Context";
 
 function App() {
   const [keyword, setKeyword] = useState("");
@@ -12,18 +11,18 @@ function App() {
   const [tracks, setTracks] = useState([]);
   const [token, setToken] = useState(null);
 
-  // const musicContext = useContext(MusicContext);
-  // const isLoading = musicContext.isLoading;
-  // const setIsLoading = musicContext.setIsLoading;
-  // const setLikedMusic = musicContext.setLikedMusic;
-  // const setpinnedMusic = musicContext.setPinnedMusic;
-  // const resultOffset = musicContext.resultOffset;
-  // const setResultOffset = musicContext.setResultOffset;
+  const musicContext = useContext(MusicContext);
+  const isLoading = musicContext.isLoading;
+  const setIsLoading = musicContext.setIsLoading;
+  const setLikedMusic = musicContext.setLikedMusic;
+  const setpinnedMusic = musicContext.setPinnedMusic;
+  const resultOffset = musicContext.resultOffset;
+  const setResultOffset = musicContext.setResultOffset;
 
   const fetchMusicData = async () => {
     setTracks([]);
     window.scrollTo(0, 0);
-    // setIsLoading(true);
+    setIsLoading(true);
     try {
       const response = await fetch(
         `https://api.spotify.com/v1/search?q=${keyword}&type=track&offset=${resultOffset}`,
@@ -44,7 +43,7 @@ function App() {
     } catch (error) {
       setMessage(error.message);
     } finally {
-      // setIsLoading(false);
+      setIsLoading(false);
     }
   };
 
@@ -78,13 +77,13 @@ function App() {
       } catch (error) {
         setMessage(error.message);
       } finally {
-        // setIsLoading(false);
+        setIsLoading(false);
       }
     };
     fetchToken();
     setLikedMusic(JSON.parse(localStorage.getItem("likedMusic")));
     setpinnedMusic(JSON.parse(localStorage.getItem("pinnedMusic")));
-  }, [  ]);
+  }, [setIsLoading, setLikedMusic, setpinnedMusic]);
 
   return (
     <>
@@ -96,7 +95,7 @@ function App() {
       />
 
       <div className="container">
-        <div className="row" >
+        <div className={`row ${isLoading ? "" : "d-none"}`}>
           <div className="col-12 py-5 text-center">
             <div
               className="spinner-border"
@@ -142,8 +141,27 @@ function App() {
             <h4 className="text-center text-danger py-2">{message}</h4>
           </div>
         </div>
-        
+        <div className="row">
+          <div className="col-12 py-5 text-center">
+            <h1>
+              <i className="bi bi-music-note-list mx-3"></i>
+              v-music
+            </h1>
+            <h3 className="py-5">Discover music in 30 seconds</h3>
+            <div>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                className="btn btn-outline-dark"
+                href="https://github.com/Vishesh-Pandey/v-music"
+              >
+                <i className="bi bi-github mx-2"></i>Github
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
+
     </>
   );
 }

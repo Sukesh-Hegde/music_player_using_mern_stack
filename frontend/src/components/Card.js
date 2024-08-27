@@ -86,42 +86,7 @@ function Card({ element }) {
                   <i className="bi bi-heart"></i>
                 </button>
               )}
-              {/* 
-              <div className="dropdown mx-1">
-                <button
-                  className="btn btn-secondary dropdown-toggle"
-                  type="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  <i className="bi bi-list"></i>
-                </button>
-                <ul className="dropdown-menu">
-                  <li>
-                    {pinnedMusic.some((item) => item.id === element.id) ? (
-                      <button
-                        onClick={handlePin}
-                        className="dropdown-item text-secondary"
-                      >
-                        Unpin
-                      </button>
-                    ) : (
-                      <button
-                        onClick={handlePin}
-                        className="dropdown-item text-secondary"
-                      >
-                        Pin
-                      </button>
-                    )}
-                  </li>
-
-                  <li>
-                    <button className="dropdown-item text-secondary">
-                      Your Playlist
-                    </button>
-                  </li>
-                </ul>
-              </div> */}
+              
             </div>
           </h5>
           <p className="card-text">Artist: {element.album.artists[0].name}</p>
