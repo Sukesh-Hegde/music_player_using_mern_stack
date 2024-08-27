@@ -17,8 +17,7 @@ function Card({ element }) {
       setpinnedMusic(updatedPinnedMusic);
       localStorage.setItem("pinnedMusic", JSON.stringify(updatedPinnedMusic));
     } else {
-      if (pinnedMusic.length >= 4) {
-      }
+
       updatedPinnedMusic = pinnedMusic;
       updatedPinnedMusic.push(element);
       setpinnedMusic(updatedPinnedMusic);
@@ -48,6 +47,7 @@ function Card({ element }) {
   }, [setlikedMusic]);
 
   return (
+    <>
     <div key={element.id} className="col-lg-3 col-md-6 py-2">
       <div className="card">
         <div className="ratio ratio-1x1 bg-secondary bg-opacity-25">
@@ -98,6 +98,9 @@ function Card({ element }) {
         </div>
       </div>
     </div>
+
+    
+    </>
   );
 }
 
