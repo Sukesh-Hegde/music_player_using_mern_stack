@@ -4,7 +4,7 @@ import fetchuser from "../middleware/fetchuser.js"
 const authRouter = express.Router();
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import User from "../models/User.js";
+import User from "../models/user.js";
 
 // ROUTE 1: Create a User using: POST "/api/auth/createUser". No login required
 authRouter.post(
