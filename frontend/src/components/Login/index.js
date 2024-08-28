@@ -1,79 +1,81 @@
-import { useState } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import styles from "./styles.module.css";
+import React, {  useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-		const host = process.env.REACT_APP_BACKEND_URL;
-		console.log(host);
-		
+  const host = process.env.REACT_APP_BACKEND_URL;
 
-	const [data, setData] = useState({ email: "", password: "" });
-	const [error, setError] = useState("");
+  const [credential, setCredentials] = useState({ email: "", password: "" });
+  let navigate = useNavigate();
 
-	const handleChange = ({ currentTarget: input }) => {
-		setData({ ...data, [input.name]: input.value });
-	};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
-		try {
-			const url = `${host}/api/auth`;
-			const { data: res } = await axios.post(url, data);
-			localStorage.setItem("token", res.data);
-			window.location = "/";
-		} catch (error) {
-			if (
-				error.response &&
-				error.response.status >= 400 &&
-				error.response.status <= 500
-			) {
-				setError(error.response.data.message);
-			}
-		}
-	};
+    const { email, password } = credential;
 
-	return (
-		<div className={styles.login_container}>
-			<div className={styles.login_form_container}>
-				<div className={styles.left}>
-					<form className={styles.form_container} onSubmit={handleSubmit}>
-						<h1>Login to Your Account</h1>
-						<input
-							type="email"
-							placeholder="Email"
-							name="email"
-							onChange={handleChange}
-							value={data.email}
-							required
-							className={styles.input}
-						/>
-						<input
-							type="password"
-							placeholder="Password"
-							name="password"
-							onChange={handleChange}
-							value={data.password}
-							required
-							className={styles.input}
-						/>
-						{error && <div className={styles.error_msg}>{error}</div>}
-						<button type="submit" className={styles.green_btn}>
-							Sing In
-						</button>
-					</form>
-				</div>
-				<div className={styles.right}>
-					<h1>New Here ?</h1>
-					<Link to="/signup">
-						<button type="button" className={styles.white_btn}>
-							Sing Up
-						</button>
-					</Link>
-				</div>
-			</div>
-		</div>
-	);
+    const response = await fetch(`${host}/api/auth/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    });
+    const json = await response.json();
+
+    if (json.success) {
+      //save the token and redirect
+      localStorage.setItem("token", json.token);
+
+      showAlert("Logged in Successfully", "success");
+      navigate("/content");
+    } else {
+      showAlert("Invalid Details", "danger");
+    }
+  };
+
+  const onChange = (e) => {
+    setCredentials({ ...credential, [e.target.name]: e.target.value });
+  };
+  return (
+    <div className="container" onSubmit={handleSubmit}>
+      <form>
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">
+            Email address
+          </label>
+          <input
+            type="email"
+            className="form-control"
+            name="email"
+            aria-describedby="emailHelp"
+            value={credential.email}
+            onChange={onChange}
+          />
+          <div id="emailHelp" className="form-text">
+            We'll never share your email with anyone else.
+          </div>
+        </div>
+        <div className="mb-3">
+          <label htmlFor="password" className="form-label">
+            Password
+          </label>
+          <input
+            type="password"
+            className="form-control"
+            name="password"
+            value={credential.password}
+            onChange={onChange}
+          />
+        </div>
+
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
+      </form>
+    </div>
+  );
 };
 
 export default Login;
