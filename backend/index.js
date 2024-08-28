@@ -10,10 +10,12 @@ connectUsingMongoose();
 const app = express();
 app.use(cors());
 const host = process.env.REACT_APP_FRONTEND_URL;
+  console.log(host);
+
 
 app.use(cors({ origin: host }));
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 8000;
 
 app.use(express.json());
 
@@ -21,5 +23,4 @@ app.use("/api/auth", authRouter);
 
 app.listen(port, () => {
   console.log(`iNotebook app listening at http://localhost:${port}`);
-  console.log(host);
 });

@@ -12,6 +12,16 @@ const MusicPlayer = ({ currentTrack }) => {
     }
   }, [currentTrack]);
 
+    useEffect(() => {
+      return () => {
+        if (audioRef.current) {
+          audioRef.current.pause(); // Ensure it's paused on unmount
+        }
+        console.log("Component will unmount, performing cleanup...");
+      };
+    }, []);
+
+
   return (
     <div className="music-player border">
       <audio

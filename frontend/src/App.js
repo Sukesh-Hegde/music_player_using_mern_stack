@@ -8,6 +8,7 @@ import Content from "./components/Content";
 import Signup from "./components/Singup/index.js";
 import Login from "./components/Login/index.js";
 import SignUpNavbar from "./components/SignUpNavbar.js";
+import Alert from "./components/Alert.js";
 
 function App() {
   const [keyword, setKeyword] = useState("");
@@ -44,10 +45,14 @@ function App() {
     }
   };
 
+  
+
   useEffect(() => {
     initializePlaylist();
     fetchMusicData();
   }, []);
+
+
 
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
@@ -55,13 +60,37 @@ function App() {
       fetchMusicData();
     }
   };
-
-
-  return (
-    <div className="appBackground">
-      <SignUpNavbar/>
-      <Routes>
+ const user = localStorage.getItem("token");
   
+
+return (
+  <div className="appBackground">
+    <>
+      <Routes>
+        <Route
+          exact
+          path="/login"
+          element={
+            <>
+              <SignUpNavbar />
+              <Alert />
+              <Login />
+            </>
+          }
+        />
+        <Route
+          path="/signup"
+          exact
+          element={
+            <>
+              <SignUpNavbar />
+              <Alert />
+              <Signup/>
+            </>
+          }
+        />
+        <Route path="/" element={<Navigate replace to="/login" />} />
+        {user && (
           <Route
             path="/content"
             exact
@@ -81,15 +110,12 @@ function App() {
               </>
             }
           />
-
-
-
-        <Route path="/signup" exact element={<Signup />} />
-        <Route path="/login" exact element={<Login/>} />
-        <Route path="/" element={<Navigate replace to="/login" />} />
+        )}
       </Routes>
-    </div>
-  );
+    </>
+  </div>
+);
+
 }
 
 export default App;

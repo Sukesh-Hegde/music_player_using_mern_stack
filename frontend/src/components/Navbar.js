@@ -10,11 +10,12 @@ const Navbar = ({ keyword, handleKeyPress, setKeyword, fetchMusicData }) => {
   const likedMusic = musicContext.likedMusic;
   const pinnedMusic = musicContext.pinnedMusic;
   const setResultOffset = musicContext.setResultOffset;
+  const handleLogout = musicContext.handleLogout;
 
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    window.location.reload();
-  };
+  // const handleLogout = () => {
+  //   localStorage.removeItem("token");
+  //   window.location.reload();
+  // };
 
   return (
     <>
@@ -61,12 +62,14 @@ const Navbar = ({ keyword, handleKeyPress, setKeyword, fetchMusicData }) => {
                 fetchMusicData();
               }}
               className="btn btn-outline-success "
-              
             >
               Search
             </button>
 
-            <button onClick={handleLogout} className="btn btn-outline-warning mx-4">
+            <button
+              onClick={handleLogout}
+              className="btn btn-outline-warning mx-4"
+            >
               Logout
             </button>
           </div>
