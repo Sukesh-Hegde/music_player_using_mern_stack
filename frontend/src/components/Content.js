@@ -41,7 +41,7 @@ const Content = ({ message, tracks, fetchMusicData }) => {
               setResultOffset((previous) => previous - 20);
               fetchMusicData();
             }}
-            className="btn btn-outline-success w-100"
+            className=" btn btn-primary w-100"
             disabled={resultOffset === 0}
           >
             Previous Next Page: {resultOffset / 20}
@@ -53,7 +53,7 @@ const Content = ({ message, tracks, fetchMusicData }) => {
               setResultOffset((previous) => previous + 20);
               fetchMusicData();
             }}
-            className="btn btn-outline-success w-100"
+            className="btn btn-primary w-100"
           >
             Next Page: {resultOffset / 20 + 2}
           </button>

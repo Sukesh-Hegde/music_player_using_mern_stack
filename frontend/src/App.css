@@ -3,14 +3,26 @@
 }
 
 
+/* App.css */
+.appBackground {
+  background-image: url('https://images.unsplash.com/photo-1653579656823-307797687591?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-repeat: no-repeat;
+  
+  background-attachment: fixed; /* This makes the image stick when scrolling */
+  height: auto; /* Ensures there is enough content to scroll */
+  background-position: center;
+}
+
+
 
 .sticky-music-controls {
   position: -webkit-sticky; /* For Safari */
   position: sticky;
   bottom: 0;
   left: 0;
-  z-index: 1000; /* Ensure it stays above other content */
-  background-color: #fff; /* Optional: Set a background color to make sure it's visible */
-  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better separation */
+  z-index: 100; 
+  background-color: #ffffff; 
+  box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); 
 }
 

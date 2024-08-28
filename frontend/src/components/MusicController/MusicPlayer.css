@@ -1,5 +1,5 @@
 .music-player {
-  margin: 20px;
+  /* margin: 20px; */
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
@@ -8,5 +8,5 @@
 }
 
 .music-player audio {
-  width: 100%; /* Adjust this as needed */
+  width: 100%; 
 }

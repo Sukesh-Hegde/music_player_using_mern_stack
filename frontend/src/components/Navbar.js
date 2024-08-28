@@ -84,7 +84,7 @@ const Navbar = ({ keyword, handleKeyPress, setKeyword, fetchMusicData }) => {
           <div className="modal-content">
             <div className="modal-header">
               <h1 className="modal-title fs-5" id="exampleModalLabel">
-                Pinned Music
+                Your Playlist
               </h1>
               <button
                 type="button"

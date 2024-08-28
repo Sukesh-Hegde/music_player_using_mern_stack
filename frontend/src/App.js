@@ -58,7 +58,7 @@ function App() {
   const user = localStorage.getItem("token");
 
   return (
-    <>
+    <div className="appBackground">
       <Routes>
         {user && (
           <Route
@@ -86,7 +86,7 @@ function App() {
         <Route path="/login" exact element={<Login />} />
         <Route path="/" element={<Navigate replace to="/login" />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

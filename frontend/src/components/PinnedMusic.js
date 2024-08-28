@@ -21,7 +21,7 @@ function PinnedMusic() {
           <div className="row">
             <div className="col">
               <h3 className="py-5 text-center">
-                You don't have any pinned music yet!
+                You don't have any playlist music yet!
               </h3>
               <div className="text-center">
                 <i className="bi bi-emoji-frown fs-1"></i>{" "}
