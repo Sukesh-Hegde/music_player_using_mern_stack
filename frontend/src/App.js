@@ -9,8 +9,6 @@ import Login from "./components/Login";
 import Content from "./components/Content";
 
 function App() {
-
-
   const [keyword, setKeyword] = useState("");
   const [message, setMessage] = useState("");
   const [tracks, setTracks] = useState([]);
@@ -20,12 +18,7 @@ function App() {
   const resultOffset = musicContext.resultOffset;
   const setResultOffset = musicContext.setResultOffset;
 
-    useEffect(() => {
-      initializePlaylist();
-      fetchMusicData();
-    }, [fetchMusicData]);
-
-  const fetchMusicData = useCallback(async () => {
+  const fetchMusicData = async () => {
     setTracks([]);
     window.scrollTo(0, 0);
     setIsLoading(true);
@@ -48,7 +41,12 @@ function App() {
     } finally {
       setIsLoading(false);
     }
-  },[]);
+  };
+
+  useEffect(() => {
+    initializePlaylist();
+    fetchMusicData();
+  }, []);
 
   const handleKeyPress = (event) => {
     if (event.key === "Enter") {
