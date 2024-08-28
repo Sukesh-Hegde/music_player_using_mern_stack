@@ -23,11 +23,11 @@ function App() {
     window.scrollTo(0, 0);
     setIsLoading(true);
     try {
-      // const response = await fetch(
-      //   `https://v1.nocodeapi.com/sukeshhegde/spotify/koKfMUSYzSERjCnF/search?q=${
-      //     keyword === "" ? "bollywood" : keyword
-      //   }&type=track&offset=${resultOffset}`
-      // );
+      const response = await fetch(
+        `https://v1.nocodeapi.com/sukeshhegde/spotify/koKfMUSYzSERjCnF/search?q=${
+          keyword === "" ? "bollywood" : keyword
+        }&type=track&offset=${resultOffset}`
+      );
 
       if (!response.ok) {
         throw new Error("Failed to fetch music data");
