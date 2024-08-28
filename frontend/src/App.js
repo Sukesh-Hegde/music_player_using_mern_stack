@@ -18,6 +18,11 @@ function App() {
   const resultOffset = musicContext.resultOffset;
   const setResultOffset = musicContext.setResultOffset;
 
+    useEffect(() => {
+      initializePlaylist();
+      fetchMusicData();
+    }, []);
+
   const fetchMusicData = async () => {
     setTracks([]);
     window.scrollTo(0, 0);
@@ -49,11 +54,6 @@ function App() {
       fetchMusicData();
     }
   };
-
-  useEffect(() => {
-    initializePlaylist();
-    fetchMusicData();
-  }, []);
 
   const user = localStorage.getItem("token");
 
