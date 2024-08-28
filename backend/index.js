@@ -8,12 +8,24 @@ dotenv.config();
 
 connectUsingMongoose();
 const app = express();
-app.use(cors());
-const host = "https://music-player-using-mern-stack-frontend.onrender.com";
-  console.log(host);
+const allowedOrigins = [
+  "https://music-player-using-mern-stack-frontend.onrender.com",
+  "https://music-player-using-mern-stackfrontend-ib9be0xc8.vercel.app",
+];
 
-
-app.use(cors({ origin: host }));
+app.use(
+  cors({
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+  })
+);
 
 const port = process.env.PORT || 8000;
 
