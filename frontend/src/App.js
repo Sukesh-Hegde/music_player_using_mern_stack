@@ -9,6 +9,11 @@ import Login from "./components/Login";
 import Content from "./components/Content";
 
 function App() {
+  useEffect(() => {
+    initializePlaylist();
+    fetchMusicData();
+  }, []);
+
   const [keyword, setKeyword] = useState("");
   const [message, setMessage] = useState("");
   const [tracks, setTracks] = useState([]);
@@ -17,11 +22,6 @@ function App() {
   const setIsLoading = musicContext.setIsLoading;
   const resultOffset = musicContext.resultOffset;
   const setResultOffset = musicContext.setResultOffset;
-
-    useEffect(() => {
-      initializePlaylist();
-      fetchMusicData();
-    }, [fetchMusicData]);
 
   const fetchMusicData = async () => {
     setTracks([]);
