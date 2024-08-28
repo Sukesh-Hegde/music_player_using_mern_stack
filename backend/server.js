@@ -12,9 +12,8 @@ connection();
 
 // middlewares
 app.use(express.json());
-
+app.use(cors());
 const host = process.env.REACT_APP_FRONTEND_URL;
-console.log(host);
 
 app.use(cors({ origin: host }));
 
