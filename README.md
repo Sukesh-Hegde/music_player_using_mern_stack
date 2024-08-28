@@ -28,7 +28,6 @@ Express: Web framework for building the RESTful API.
 Mongoose: MongoDB object modeling for Node.js.
 JSON Web Token (JWT): For secure authentication.
 bcrypt: For hashing passwords.
-Joi & Joi-Password-Complexity: For data validation.
 dotenv: For environment variable management.
 cors: For handling Cross-Origin Resource Sharing.
 
