@@ -5,6 +5,8 @@ import styles from "./styles.module.css";
 
 const Login = () => {
 		const host = process.env.REACT_APP_BACKEND_URL;
+		console.log(host);
+		
 
 	const [data, setData] = useState({ email: "", password: "" });
 	const [error, setError] = useState("");
