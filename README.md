@@ -1,6 +1,6 @@
 # Music App
 
-Live-link: 
+Live-link: https://music-player-using-mern-stack-frontend.onrender.com
 
 This project is a full-featured music application built using the MERN stack. It allows users to search for songs using the Spotify API, create playlists, favorite songs, and control playback. Users can sign up and log in using JWT authentication, and their data is securely stored in MongoDB.
 
