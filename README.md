@@ -79,10 +79,10 @@ Access the application:
 Open your browser and go to http://localhost:3000.
 
 ## screenShots
+![Screenshot 2024-08-28 at 6 07 05 PM](https://github.com/user-attachments/assets/d83d8f66-c6b2-4325-a146-5c850c601a5d)
 
-![Screenshot 2024-08-28 at 10 55 14 AM](https://github.com/user-attachments/assets/f9a0da72-5abd-43e5-9a4f-a159b8e68493)
 
-![Screenshot 2024-08-28 at 10 55 26 AM](https://github.com/user-attachments/assets/ff530d77-afa2-44f0-ab82-2b60f4a89d2d)
+![Screenshot 2024-08-28 at 6 07 23 PM](https://github.com/user-attachments/assets/dd6bd6e1-7890-4cbf-b58d-c596fb0489b3)
 
 ![Screenshot 2024-08-28 at 10 53 25 AM](https://github.com/user-attachments/assets/a8278be6-43a7-4238-8a6a-710d1f3e8b53)
 
