@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const bcrypt = require("bcrypt");
 const Joi = require("joi");
-const { User } = require("../models/User");
+const { User } = require("../models/user.js");
 
 router.post("/", async (req, res) => {
 	try {
