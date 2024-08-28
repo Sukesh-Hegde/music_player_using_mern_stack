@@ -1,5 +1,7 @@
 # Music App
 
+Live-link: 
+
 This project is a full-featured music application built using the MERN stack. It allows users to search for songs using the Spotify API, create playlists, favorite songs, and control playback. Users can sign up and log in using JWT authentication, and their data is securely stored in MongoDB.
 
 ## Features
@@ -77,3 +79,17 @@ Access the application:
 Open your browser and go to http://localhost:3000.
 
 ## screenShots
+
+![Screenshot 2024-08-28 at 10 55 14 AM](https://github.com/user-attachments/assets/f9a0da72-5abd-43e5-9a4f-a159b8e68493)
+
+![Screenshot 2024-08-28 at 10 55 26 AM](https://github.com/user-attachments/assets/ff530d77-afa2-44f0-ab82-2b60f4a89d2d)
+
+![Screenshot 2024-08-28 at 10 53 25 AM](https://github.com/user-attachments/assets/a8278be6-43a7-4238-8a6a-710d1f3e8b53)
+
+![Screenshot 2024-08-28 at 10 53 43 AM](https://github.com/user-attachments/assets/fe01b932-58d6-49ab-9fa4-b80211b06715)
+
+![Screenshot 2024-08-28 at 10 54 00 AM](https://github.com/user-attachments/assets/73dd7b91-b55e-4ec0-9c48-756b9b7fabe5)
+
+![Screenshot 2024-08-28 at 10 54 10 AM](https://github.com/user-attachments/assets/aa43ff21-c450-4c5a-964d-8234002895ab)
+
+![Screenshot 2024-08-28 at 10 54 36 AM](https://github.com/user-attachments/assets/61675b05-00f5-455d-833b-5a6d53c346ef)
