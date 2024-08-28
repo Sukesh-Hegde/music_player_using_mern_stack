@@ -9,7 +9,7 @@ dotenv.config();
 connectUsingMongoose();
 const app = express();
 app.use(cors());
-const host = process.env.REACT_APP_FRONTEND_URL;
+const host = "https://music-player-using-mern-stack-frontend.onrender.com";
   console.log(host);
 
 

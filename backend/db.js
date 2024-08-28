@@ -3,7 +3,8 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-const url = process.env.DB_URL;
+const url =
+  "mongodb+srv://sukeshhegde:1234@cluster0.k4tse.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 export const connectUsingMongoose = async () => {
   try {
     await mongoose.connect(url, {

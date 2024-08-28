@@ -6,7 +6,7 @@ const Signup = () => {
     const musicContext = useContext(MusicContext);
     const showAlert = musicContext.showAlert;
 
-  const host = process.env.REACT_APP_BACKEND_URL || "http://localhost:8000"  ;
+  const host = "https://music-player-using-mern-stack-backend.onrender.com"; 
   
 
   const [credential, setCredentials] = useState({
