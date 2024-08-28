@@ -1,10 +1,10 @@
 import express from "express";
 import { body, validationResult } from "express-validator";
-import fetchuser from "../middleware/fetchuser.js"
+import fetchuser from "../middleware/fetchuser.js";
 const authRouter = express.Router();
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
-import User from "../models/user.js"
+import User from "../models/user.js";
 
 // ROUTE 1: Create a User using: POST "/api/auth/createUser". No login required
 authRouter.post(
@@ -18,6 +18,7 @@ authRouter.post(
 
   async (req, res) => {
     let success = false;
+    console.log("create user");
 
     // If there are errors, return Bad request and the errors
     const errors = validationResult(req);
@@ -29,12 +30,10 @@ authRouter.post(
       // Check whether the user with this email exists already
       let user = await User.findOne({ email: req.body.email });
       if (user) {
-        return res
-          .status(400)
-          .json({
-            success,
-            error: "Sorry, a user with this email already exists",
-          });
+        return res.status(400).json({
+          success,
+          error: "Sorry, a user with this email already exists",
+        });
       }
       //hashing password
       const pass = req.body.password;

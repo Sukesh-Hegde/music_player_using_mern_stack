@@ -32,7 +32,13 @@ const Signup = () => {
         password: password,
       }),
     });
+    if (!response.ok) {
+      // Handle different error statuses
+      const errorText = await response.text(); // Capture the raw text response
+      throw new Error(`Error ${response.status}: ${errorText}`);
+    }
     const json = await response.json();
+
 
     if (json.success) {
       localStorage.setItem("token", json.token);
