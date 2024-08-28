@@ -1,6 +1,6 @@
 import express from "express";
 import { body, validationResult } from "express-validator";
-import User from "../models/User.js";
+import User from "../models/User.js"
 import fetchuser from "../middleware/fetchuser.js"
 const authRouter = express.Router();
 import bcrypt from "bcrypt";
