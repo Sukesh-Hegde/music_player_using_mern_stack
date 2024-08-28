@@ -21,7 +21,7 @@ function App() {
     useEffect(() => {
       initializePlaylist();
       fetchMusicData();
-    }, []);
+    }, [fetchMusicData]);
 
   const fetchMusicData = async () => {
     setTracks([]);
