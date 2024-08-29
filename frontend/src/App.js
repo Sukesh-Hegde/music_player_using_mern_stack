@@ -27,10 +27,11 @@ function App() {
     setIsLoading(true);
     try {
       const response = await fetch(
-        `https://v1.nocodeapi.com/sukeshhegde/spotify/koKfMUSYzSERjCnF/search?q=${
+        `https://v1.nocodeapi.com/sukesh/spotify/wLuwTgyGBpschXGs/search?q=${
           keyword === "" ? "bollywood" : keyword
         }&type=track&offset=${resultOffset}`
       );
+      
 
       if (!response.ok) {
         throw new Error("Failed to fetch music data");
