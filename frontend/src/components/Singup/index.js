@@ -2,11 +2,14 @@ import React, {  useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { MusicContext } from "../../Context";
 
+
 const Signup = () => {
     const musicContext = useContext(MusicContext);
     const showAlert = musicContext.showAlert;
 
-  const host = "https://music-player-using-mern-stack-backend.onrender.com"; 
+  const host = process.env.REACT_APP_BACKEND_URL;
+  
+  console.log(host);
   
 
   const [credential, setCredentials] = useState({

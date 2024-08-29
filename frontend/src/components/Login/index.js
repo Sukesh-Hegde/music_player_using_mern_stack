@@ -6,8 +6,9 @@ const Login = () => {
   const musicContext = useContext(MusicContext);
   const showAlert = musicContext.showAlert;
 
-  const host = "https://music-player-using-mern-stack-backend.onrender.com"; 
-  
+  const host = process.env.REACT_APP_BACKEND_URL;
+
+
 
   const [credential, setCredentials] = useState({ email: "", password: "" });
   let navigate = useNavigate();
