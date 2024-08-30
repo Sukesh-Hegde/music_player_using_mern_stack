@@ -59,8 +59,10 @@ Set up environment variables:
 Create a .env file in the backend directory with the following variables:
 
 env
-DB=your_mongo_db_uri
-JWTPRIVATEKEY=your_jwt_secret
+REACT_APP_BACKEND_URL=your_backed url
+REACT_APP_FRONTEND_UR = your_frontent url
+DB_URL=your_mongo_db_uri
+JWT_SECRET= your_jwt_secret
 Run the application:
 
 Start the backend server:
